@@ -9,11 +9,9 @@
       width: 65%;
       /*height: 100%;*/
       margin: 0 auto;
+      text-align: center; 
     }
 
-    #sat {
-
-    }
 
     #wrapper {
       -webkit-user-select: none;
@@ -24,7 +22,7 @@
     }
 
     #divider {
-      border: 3px orange solid;
+      border: 3px hsla(67, 100%, 50%, 0.676) solid;
       position: relative;
       overflow: hidden;
     }
@@ -49,7 +47,7 @@
     #handle {
       border: 2px yellow solid;
       border-radius: 50%;
-      background: orange;
+      background:  hsla(67, 100%, 50%, 0.676);
       height: 8%;
       width: 8%;
       position: absolute;
@@ -58,6 +56,19 @@
       margin: -4% 0 0 -4%;
       cursor: pointer;
     }
+    #sat {
+      display: inline-block; /* Change display to inline-block */
+      font-size: 25px;
+      border-radius: 5px;
+      margin: 5px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: 2px solid;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+
   </style>
 </head>
 <body>
@@ -73,10 +84,10 @@
     </div>
   </div>
   <select id="sat" onchange="changeURL()">
-    <option  value="Sat1">Sat1</option>
-    <option  value="Sat2">Sat2</option>
-    <option  value="Sat3">Sat3</option>
-    <option  value="Sat4">Sat4</option>
+    <option  value="Sat1">Canoas</option>
+    <option  value="Sat2">Eldorado</option>
+    <option  value="Sat3">São Leopoldo</option>
+    <option  value="Sat4">Porto alegre</option>
   </select>
 </div>
 
