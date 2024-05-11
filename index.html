@@ -6,8 +6,12 @@
   <title>Image Comparison Slider</title>
   <style>
     #container {
-      width: 50%; /* Set the width of the container */
-      margin: 0 auto; /* Center the container horizontally */
+      width: 65%;
+      margin: 0 auto;
+    }
+
+    #sat {
+
     }
 
     #wrapper {
@@ -26,7 +30,9 @@
 
     img {
       width: 100%;
+      height: 100%;
       display: block;
+      object-fit: cover; /* Make the image fill its container while preserving aspect ratio */
     }
 
     #beforeImage {
@@ -58,17 +64,58 @@
 <div id="container">
   <div id="wrapper">
     <div id="divider">
-      <img src="https://metsul.com/wp-content/uploads/2024/05/sat0705c.jpg">
+      <img id="img1" src="https://metsul.com/wp-content/uploads/2024/05/sat0705a.jpg">
       <div id="beforeImage">
-        <img src="https://metsul.com/wp-content/uploads/2024/05/sat0705d.jpg">
+        <img id="img2"src="https://metsul.com/wp-content/uploads/2024/05/sat0705b.jpg">        
       </div>
       <span id="handle"></span>
     </div>
   </div>
+  <select id="sat" onchange="changeURL()">
+    <option  value="Sat1">Sat1</option>
+    <option  value="Sat2">Sat2</option>
+    <option  value="Sat3">Sat3</option>
+    <option  value="Sat4">Sat4</option>
+  </select>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+
+function changeURL() {
+  var selectedValue = document.getElementById("sat").value;
+  var sats1, sats2;
+
+  switch (selectedValue) {
+    case "Sat1":
+      sats1 = "a.jpg";
+      sats2 = "b.jpg";
+      break;
+    case "Sat2":
+      sats1 = "c.jpg";
+      sats2 = "d.jpg";
+      break;
+    case "Sat3":
+      sats1 = "e.jpg";
+      sats2 = "f.jpg";
+      break;
+    case "Sat4":
+      sats1 = "g.jpg";
+      sats2 = "h.jpg";
+      break;
+    default:
+      sats1 = "a.jpg";
+      sats2 = "b.jpg";
+  }
+
+  var baseUrl = "https://metsul.com/wp-content/uploads/2024/05/sat0705";
+  var img1Src = baseUrl + sats1;
+  var img2Src = baseUrl + sats2;
+
+  document.getElementById("img1").setAttribute("src", img1Src);
+  document.getElementById("img2").setAttribute("src", img2Src);
+}
+
   $(document).ready(equalImgWidth);
   $(window).resize(equalImgWidth);
 
